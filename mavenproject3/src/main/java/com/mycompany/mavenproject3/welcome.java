@@ -404,42 +404,29 @@ try {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
 try {
-        // Prepare the dynamic SQL query
-        String query = "SELECT country, COUNT(*) AS attendee_count FROM christ GROUP BY country";
         
-        // Create a PreparedStatement
+        String query = "SELECT country, COUNT(*) AS attendee_count FROM christ GROUP BY country";
         PreparedStatement preparedStatement = con.prepareStatement(query);
-
-        // Execute the query
         ResultSet resultSet = preparedStatement.executeQuery();
-
-        // Process the result set
         StringBuilder resultMessage = new StringBuilder("Attendee Counts:\n");
 
         while (resultSet.next()) {
             String country = resultSet.getString("country");
             int attendeeCount = resultSet.getInt("attendee_count");
-
-            // Append the information to the result message
             resultMessage.append("Country: ").append(country).append(", Attendee Count: ").append(attendeeCount).append("\n");
         }
-
-        // Close resources
         resultSet.close();
         preparedStatement.close();
-
-        // Display the information in a JOptionPane
         JOptionPane.showMessageDialog(this, resultMessage.toString(), "Attendee Statistics", JOptionPane.INFORMATION_MESSAGE);
 
     } catch (SQLException e) {
         e.printStackTrace();
-        // Handle any exceptions that may occur during the process
     }
-    }//GEN-LAST:event_jButton7ActionPerformed
-
+    }
+    
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }
 
     /**
      * @param args the command line arguments
