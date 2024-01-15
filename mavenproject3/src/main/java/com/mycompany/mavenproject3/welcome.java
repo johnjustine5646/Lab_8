@@ -427,6 +427,16 @@ try {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {                                     
+        // TODO add your handling code here:
+        def = (DefaultTableModel) jTable1.getModel();
+        int selected = jTable1.getSelectedRow();
+        int id = Integer.parseInt(def.getValueAt(selected, 0).toString());
+        jTextField1.setText(def.getValueAt(selected, 1).toString());
+        jTextField2.setText(def.getValueAt(selected, 2).toString());
+        jTextField3.setText(def.getValueAt(selected, 3).toString());
+        jTextField4.setText(def.getValueAt(selected, 4).toString());
+    } 
 
     /**
      * @param args the command line arguments
